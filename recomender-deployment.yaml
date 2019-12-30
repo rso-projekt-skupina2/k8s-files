@@ -13,7 +13,7 @@ spec:
         app: recomender
     spec:
       containers:
-        - image: baraba123/rso-recomender:1.0.0-SNAPSHOT-7.1
+        - image: baraba123/rso-recomender:1.0.0-SNAPSHOT-8.1
           name: recomender
           env:
             - name: KUMULUZEE_DISCOVERY_CLUSTER
@@ -21,7 +21,7 @@ spec:
             - name: KUMULUZEE_DISCOVERY_ETCD_HOSTS
               value: http://etcd:2379
             - name: KUMULUZEE_SERVER_BASEURL
-              value: http://52.188.78.101:8080
+              value: http://159.65.210.43:8080
           ports:
             - containerPort: 8081
               name: server
