@@ -13,7 +13,7 @@ spec:
         app: image-catalog
     spec:
       containers:
-        - image: baraba123/rso-image-catalog:1.0.0-SNAPSHOT-24.1
+        - image: baraba123/rso-image-catalog:1.0.0-SNAPSHOT-36.1
           name: image-catalog
           env:
             - name: KUMULUZEE_DISCOVERY_CLUSTER
@@ -23,13 +23,13 @@ spec:
             - name: KUMULUZEE_CONFIG_ETCD_HOSTS
               value: http://etcd:2379
             - name: KUMULUZEE_SERVER_BASEURL
-              value: http://52.188.78.101:8080
+              value: http://159.65.210.43:8080
             - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
-              value: jdbc:postgresql://ec2-174-129-255-10.compute-1.amazonaws.com:5432/dda01e82h4eo6u
+              value: jdbc:postgresql://ec2-174-129-253-47.compute-1.amazonaws.com:5432/deo5eqi17pku88
             - name: KUMULUZEE_DATASOURCES0_USERNAME
-              value: rrusmqcilifpun
+              value: wzrxvafpsjevmb
             - name: KUMULUZEE_DATASOURCES0_PASSWORD
-              value: fced1fb5d5b33879d657e5629f206ec638c171a2270013d233ad6a43985a56ba
+              value: 305cca00d8fb2eed0e79b53388be223aef344750f1cdb1b6288f7d85e5c4d59f
           ports:
             - containerPort: 8080
               name: server
