@@ -19,3 +19,7 @@ spec:
             backend:
               serviceName: image-catalog
               servicePort: 8080
+          - path: /processing(/|$)(.*)
+            backend:
+              serviceName: processing
+              servicePort: 8082
