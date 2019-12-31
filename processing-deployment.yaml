@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: processing-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: processing
+  template:
+    metadata:
+      labels:
+        app: processing
+    spec:
+      containers:
+        - image: baraba123/rso-processing:1.0.0-SNAPSHOT-1.1
+          name: processing
+          env:
+            - name: KUMULUZEE_DISCOVERY_CLUSTER
+              value: rso
+            - name: KUMULUZEE_DISCOVERY_ETCD_HOSTS
+              value: http://etcd:2379
+            - name: KUMULUZEE_SERVER_BASEURL
+              value: http://159.65.210.43:8082
+          ports:
+            - containerPort: 8082
+              name: server
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: server
+            initialDelaySeconds: 20
+            periodSeconds: 3
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: server
+            initialDelaySeconds: 20
+            periodSeconds: 3
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: processing
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8082
+      protocol: TCP
+      targetPort: server
+  selector:
+    app: processing
