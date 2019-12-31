@@ -13,7 +13,7 @@ spec:
         app: processing
     spec:
       containers:
-        - image: baraba123/rso-processing:1.0.0-SNAPSHOT-2.1
+        - image: baraba123/rso-processing:1.0.0-SNAPSHOT-3.1
           name: processing
           env:
             - name: KUMULUZEE_DISCOVERY_CLUSTER
